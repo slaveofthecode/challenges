@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background: #454343;
+}
+
+body {
+	font-family: "Verdana", sans-serif;
+}
+
+ul,
+li {
+	list-style: none;
+}

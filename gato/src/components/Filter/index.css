@@ -1,0 +1,25 @@
+.filter {
+	display: flex;
+	padding: 25px;
+	gap: 25px;
+	justify-content: center;
+	align-items: center;
+	color: #fff8;
+	border-bottom: 1px solid #0008;
+	box-shadow: 0px 0px 10px 0px #0008;
+}
+
+.filter-input {
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	min-width: 300px;
+}
+
+.filter-label {
+	font-size: 1.5rem;
+}
+
+.filter-checkbox {
+	margin-left: 10px;
+}
