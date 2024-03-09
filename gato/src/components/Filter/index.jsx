@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
-const Filter = () => {
+const Filter = ({handleChangeFilter}) => {
 
-    const [ filter, setFilter] = useState({
-        rol: null,
-        isFulltime: false,
-        name: null
-    });
+    // const [ filter, setFilter] = useState({
+    //     rol: null,
+    //     isFulltime: false,
+    //     name: null
+    // });
 
-    const handleChangeFilter = (e) => {
-      // console.log(e.target.type)
-      // console.log(e.target.checked);
-      // console.log(e.target.value);
+    // const handleChangeFilter = (e) => {
+    //   // console.log(e.target.type)
+    //   // console.log(e.target.checked);
+    //   // console.log(e.target.value);
 
-      if (e.target.type === 'checkbox') {
-          setFilter({
-              ...filter,
-              isFulltime: e.target.checked
-          })
-      } else {
-          setFilter({
-              ...filter,
-              name: e.target.value
-          })  
-      }
+    //   if (e.target.type === 'checkbox') {
+    //       setFilter({
+    //           ...filter,
+    //           isFulltime: e.target.checked
+    //       })
+    //   } else {
+    //       setFilter({
+    //           ...filter,
+    //           name: e.target.value
+    //       })  
+    //   }
       
-    }
+    // }
 
   return (
     <section className='filter'>

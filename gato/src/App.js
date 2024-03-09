@@ -11,6 +11,26 @@ function App() {
 	const [data, setData] = useState([]);
 	const [dataSelected, setDataSelected] = useState(null);
 
+	const [filter, setFilter] = useState({
+		rol: null,
+		isFulltime: false,
+		name: null,
+	});
+
+	const handleChangeFilter = (e) => {
+		if (e.target.type === "checkbox") {
+			setFilter({
+				...filter,
+				isFulltime: e.target.checked,
+			});
+		} else {
+			setFilter({
+				...filter,
+				name: e.target.value,
+			});
+		}
+	};
+
 	const getData = async () => {
 		const response = await fetch(url);
 		const data = await response.json();
@@ -24,10 +44,32 @@ function App() {
 			.catch((error) => console.log(error));
 	}, []);
 
+	useEffect(() => {
+		const filterData = async () => {
+			const response = await fetch(url);
+			const data = await response.json();
+			let filteredData = data;
+
+			if (filter.name) {
+				filteredData = filteredData.filter((item) =>
+					item.title.toLowerCase().includes(filter.name.toLowerCase())
+				);
+			}
+
+			if (filter.isFulltime) {
+				filteredData = filteredData.filter((item) => item.fulltime);
+			}
+
+			setData(filteredData);
+		};
+
+		filterData();
+	}, [filter]);
+
 	return (
 		<div className="App">
 			<div className={dataSelected ? "-blur" : ""}>
-				<Filter />
+				<Filter handleChangeFilter={handleChangeFilter} />
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
 			<Modal
