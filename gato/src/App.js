@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Filter from "./components/Filter";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
+
 import "./styles/index.css";
 
 function App() {
@@ -30,8 +31,6 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		console.log("F", filter);
-
 		const allData = cacheDataRef.current;
 		let filterData = allData;
 

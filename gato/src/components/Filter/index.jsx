@@ -1,19 +1,15 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import useDebounce from '../../hooks/useDebounce';
 import './index.css';
 
 const Index = ({setFilter}) => {
 
-    const debounceRef =  useRef();    
+    const { debounce } = useDebounce();
 
     const handlerOnChange = (evt) => {
-
-
-        if (debounceRef.current)
-           clearTimeout(debounceRef.current);
-
-        debounceRef.current = setTimeout(()=>{
+        
+        debounce( () => {
             const { value } = evt.target;
-
             setFilter( f => {
                 
                 return {
@@ -22,8 +18,7 @@ const Index = ({setFilter}) => {
                 }
 
             });
-            
-        },[ 1000 ]);        
+        })
 
     }
 
