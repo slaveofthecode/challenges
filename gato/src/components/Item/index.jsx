@@ -8,16 +8,19 @@ const Item = ({ item, setDataSelected }) => {
     };
 
   return (
-    <div className='item' >
-        <figure className='item-image'>
-            <img src={item.logo} alt={item.title} />
-            <figcaption className='item-image__figCaption'>{item.description}</figcaption>
+    <div className='item1' >
+       
+        <figure>
+          <img src={item.logo} alt={item.title} />
+          <figcaption>{item.description}</figcaption>
         </figure>
-        <div className='item-container__detail'>
-          <h2 className='item-title'>{item.title}</h2>
-          <p className='item-details'>{item.details}</p>        
-          <button onClick={handleClick} className='item-button__seeMore' > see more </button>
-        </div>
+       
+        <section>
+          <h3 className='item-title1'>{item.title}</h3>
+          <p className='item-details1'>{item.details}</p>        
+          <button onClick={handleClick} className='item-button__seeMore' > see more </button> 
+        </section> 
+
     </div>
   )
 }

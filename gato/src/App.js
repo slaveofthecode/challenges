@@ -40,7 +40,7 @@ function App() {
 	}, [filter]);
 
 	return (
-		<div className="App">
+		<div>
 			<div className={dataSelected ? "-blur" : ""}>
 				<Filter setFilter={setFilter} />
 				<Grid data={data} setDataSelected={setDataSelected} />

@@ -5,18 +5,26 @@ import './index.css';
 
 const Grid = ({ data, setDataSelected }) => {
   return (
-    <section className='grid'>
-        
-        <small className='grid-totalrows' > Total rows ( <strong>{ data?.length }</strong> )</small>
+    <div style={{ padding: '30px 10px', position: 'relative' }} >
+      <small className='grid-totalrows' > 
+        Total rows 
+        ( 
+          <strong className='grid-totalrows__value'>
+              { data?.length }
+          </strong> 
+        )
+        </small>
+      <section className='grid'>          
 
-        {data?.map((item, index) => (
+          {data?.map((item, index) => (
             <Item 
-                key={index} 
-                item={item} 
-                setDataSelected={setDataSelected} 
+            key={index} 
+            item={item} 
+            setDataSelected={setDataSelected} 
             />            
-        ))}
-    </section>
+            ))}
+      </section>
+    </div>
   )
 }
 

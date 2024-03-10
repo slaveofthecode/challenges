@@ -18,7 +18,7 @@ const Index = ({setFilter}) => {
                 }
 
             });
-        })
+        }, 500);
 
     }
 
