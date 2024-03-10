@@ -1,42 +1,92 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './index.css';
 
-const Filter = ({handleChangeFilter}) => {
+const Index = ({setFilter}) => {
 
-    // const [ filter, setFilter] = useState({
-    //     rol: null,
-    //     isFulltime: false,
-    //     name: null
-    // });
+    const debounceRef =  useRef();    
 
-    // const handleChangeFilter = (e) => {
-    //   // console.log(e.target.type)
-    //   // console.log(e.target.checked);
-    //   // console.log(e.target.value);
+    const handlerOnChange = (evt) => {
 
-    //   if (e.target.type === 'checkbox') {
-    //       setFilter({
-    //           ...filter,
-    //           isFulltime: e.target.checked
-    //       })
-    //   } else {
-    //       setFilter({
-    //           ...filter,
-    //           name: e.target.value
-    //       })  
-    //   }
-      
-    // }
 
-  return (
-    <section className='filter'>
-        <div className='filter-label'>Filter</div>
-        <div>
-            <input type="text" placeholder="Search by Title" className='filter-input' onChange={handleChangeFilter} />
-            <input type='checkbox' name='fulltime' value='Frontend' className='filter-checkbox' onClick={handleChangeFilter}  /> FullTime
+        if (debounceRef.current)
+           clearTimeout(debounceRef.current);
+
+        debounceRef.current = setTimeout(()=>{
+            const { value } = evt.target;
+
+            setFilter( f => {
+                
+                return {
+                    ...f,
+                    title: value
+                }
+
+            });
+            
+        },[ 1000 ]);        
+
+    }
+
+    const handlerOnChangeOption = (evt) => {
+        const { value } = evt.target;
+        const isFulltime = value === 'true';
+        
+        setFilter( f => {
+             
+            return {
+                ...f,
+                fulltime: value === '' 
+                    ? null 
+                    : isFulltime
+            }
+
+        });
+    }
+
+    return (
+        <div className='filter'>
+            <input 
+                type='text' 
+                placeholder='Search...' 
+                className='filter-input'
+                onChange={handlerOnChange}
+            />
+
+            <div>
+                <div>
+                    <label htmlFor='radio-all' >All</label>
+                    <input 
+                        id='radio-all'
+                        type='radio'
+                        name='fulltime'
+                        onChange={handlerOnChangeOption}
+                        value={undefined}                
+                        defaultChecked
+                    />
+                </div>    
+                <div>
+                    <label htmlFor='radio-is-fulltime' >Fulltime</label>
+                    <input 
+                        id='radio-is-fulltime'
+                        type='radio'
+                        name='fulltime'
+                        onChange={handlerOnChangeOption}
+                        value={true}                
+                    />
+                </div>
+                <div>
+                    <label htmlFor='radio-no-fulltime' >No fulltime</label>
+                    <input 
+                        id='radio-no-fulltime'
+                        type='radio'
+                        name='fulltime'
+                        onChange={handlerOnChangeOption}
+                        value={false}                
+                    />
+                </div>
+            </div>
         </div>
-    </section>
-  )
+    )
 }
 
-export default Filter
+export default Index

@@ -6,7 +6,10 @@ import './index.css';
 const Grid = ({ data, setDataSelected }) => {
   return (
     <section className='grid'>
-        {data.map((item, index) => (
+        
+        <small className='grid-totalrows' > Total rows ( <strong>{ data?.length }</strong> )</small>
+
+        {data?.map((item, index) => (
             <Item 
                 key={index} 
                 item={item} 

@@ -9,10 +9,10 @@ const Item = ({ item, setDataSelected }) => {
 
   return (
     <div className='item' >
-        <image className='item-image'>
+        <figure className='item-image'>
             <img src={item.logo} alt={item.title} />
             <figcaption className='item-image__figCaption'>{item.description}</figcaption>
-        </image>
+        </figure>
         <div className='item-container__detail'>
           <h2 className='item-title'>{item.title}</h2>
           <p className='item-details'>{item.details}</p>        

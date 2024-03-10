@@ -1,75 +1,61 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Filter from "./components/Filter";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
-
 import "./styles/index.css";
 
 function App() {
-	const url = "https://6300ff309a1035c7f8fc2586.mockapi.io/jobposts";
-
 	const [data, setData] = useState([]);
 	const [dataSelected, setDataSelected] = useState(null);
-
 	const [filter, setFilter] = useState({
-		rol: null,
-		isFulltime: false,
-		name: null,
+		title: "",
+		fulltime: null,
 	});
 
-	const handleChangeFilter = (e) => {
-		if (e.target.type === "checkbox") {
-			setFilter({
-				...filter,
-				isFulltime: e.target.checked,
-			});
-		} else {
-			setFilter({
-				...filter,
-				name: e.target.value,
-			});
-		}
-	};
+	const cacheDataRef = useRef(null);
 
 	const getData = async () => {
-		const response = await fetch(url);
+		const response = await fetch(process.env.REACT_APP_API_URL);
 		const data = await response.json();
-		console.log(data);
 		return data;
 	};
 
 	useEffect(() => {
 		getData()
-			.then((data) => setData(data))
+			.then((data) => {
+				setData(data);
+				cacheDataRef.current = data;
+			})
 			.catch((error) => console.log(error));
 	}, []);
 
 	useEffect(() => {
-		const filterData = async () => {
-			const response = await fetch(url);
-			const data = await response.json();
-			let filteredData = data;
+		console.log("F", filter);
 
-			if (filter.name) {
-				filteredData = filteredData.filter((item) =>
-					item.title.toLowerCase().includes(filter.name.toLowerCase())
-				);
-			}
+		const allData = cacheDataRef.current;
+		let filterData = allData;
 
-			if (filter.isFulltime) {
-				filteredData = filteredData.filter((item) => item.fulltime);
-			}
+		const { title, fulltime } = filter;
 
-			setData(filteredData);
-		};
+		if (fulltime !== null)
+			filterData = filterData.filter(
+				(item) => item.fulltime === fulltime
+			);
 
-		filterData();
+		if (title && title?.length)
+			filterData = filterData.filter((item) =>
+				item.title.toLowerCase().includes(title.toLowerCase())
+			);
+
+		console.log("filterData", filterData);
+
+		setData(filterData);
 	}, [filter]);
 
 	return (
 		<div className="App">
 			<div className={dataSelected ? "-blur" : ""}>
-				<Filter handleChangeFilter={handleChangeFilter} />
+				<Filter setFilter={setFilter} />
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
 			<Modal
