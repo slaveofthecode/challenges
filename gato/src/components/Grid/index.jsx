@@ -5,7 +5,7 @@ import './index.css';
 
 const Grid = ({ data, setDataSelected }) => {
   return (
-    <div style={{ padding: '30px 10px', position: 'relative' }} >
+    <div style={{ padding: '5px 10px', position: 'relative' }} >
       <small className='grid-totalrows' > 
         Total rows 
         ( 

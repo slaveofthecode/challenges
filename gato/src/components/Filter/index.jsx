@@ -39,15 +39,17 @@ const Index = ({setFilter}) => {
     }
 
     return (
-        <div className='filter'>
-            <input 
-                type='text' 
-                placeholder='Search...' 
-                className='filter-input'
-                onChange={handlerOnChange}
-            />
+        <div className='filter-container'>
 
             <div>
+                <input 
+                    type='text' 
+                    placeholder='Search by title...' 
+                    className='filter-input'
+                    onChange={handlerOnChange}
+                />
+
+            <div className='radios'>
                 <div>
                     <label htmlFor='radio-all' >All</label>
                     <input 
@@ -79,7 +81,10 @@ const Index = ({setFilter}) => {
                         value={false}                
                     />
                 </div>
+            </div> 
+
             </div>
+
         </div>
     )
 }
