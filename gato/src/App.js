@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
+import useFetch from "./hooks/useFetch";
 
 import "./styles/index.css";
 
@@ -13,26 +15,14 @@ function App() {
 		fulltime: null,
 	});
 
-	const cacheDataRef = useRef(null);
-
-	const getData = async () => {
-		const response = await fetch(process.env.REACT_APP_API_URL);
-		const data = await response.json();
-		return data;
-	};
+	const { data: dataFetch } = useFetch(process.env.REACT_APP_API_URL, true);
 
 	useEffect(() => {
-		getData()
-			.then((data) => {
-				setData(data);
-				cacheDataRef.current = data;
-			})
-			.catch((error) => console.log(error));
-	}, []);
+		if (dataFetch) setData(dataFetch);
+	}, [dataFetch]);
 
 	useEffect(() => {
-		const allData = cacheDataRef.current;
-		let filterData = allData;
+		let filterData = dataFetch;
 
 		const { title, fulltime } = filter;
 
@@ -45,8 +35,6 @@ function App() {
 			filterData = filterData.filter((item) =>
 				item.title.toLowerCase().includes(title.toLowerCase())
 			);
-
-		console.log("filterData", filterData);
 
 		setData(filterData);
 	}, [filter]);
