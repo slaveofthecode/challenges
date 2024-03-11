@@ -47,6 +47,7 @@ function App() {
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
 			<Footer />
+
 			<Modal
 				dataSelected={dataSelected}
 				setDataSelected={setDataSelected}
