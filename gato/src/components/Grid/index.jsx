@@ -9,7 +9,7 @@ const Grid = ({ data, setDataSelected }) => {
       <small className='grid-totalrows' > 
         Total rows 
         ( 
-          <strong className='grid-totalrows__value'>
+          <strong>
               { data?.length }
           </strong> 
         )

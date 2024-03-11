@@ -1,4 +1,4 @@
-.item1 {
+.item {
 	display: flex;
 	height: 300px;
 	position: relative;
@@ -64,6 +64,53 @@
 			background-color: #22212175;
 			color: #fff7;
 			cursor: pointer;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.item {
+		height: 200px;
+
+		> figure {
+			> img {
+				height: 100%;
+			}
+			> figcaption {
+				font-size: 0.75rem;
+			}
+		}
+
+		> section {
+			> h3 {
+				font-size: 0.85rem;
+				padding: 3px;
+			}
+
+			> p {
+				display: none;
+			}
+
+			> button {
+				padding: 5px 10px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.item {
+		height: 150px;
+
+		> section {
+			> h3 {
+				font-size: 0.75rem;
+				padding: 3px;
+			}
+
+			> button {
+				padding: 5px 10px;
+			}
 		}
 	}
 }

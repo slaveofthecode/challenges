@@ -8,7 +8,7 @@ const Item = ({ item, setDataSelected }) => {
     };
 
   return (
-    <div className='item1' >
+    <div className='item' >
        
         <figure>
           <img src={item.logo} alt={item.title} />
@@ -16,9 +16,9 @@ const Item = ({ item, setDataSelected }) => {
         </figure>
        
         <section>
-          <h3 className='item-title1'>{item.title}</h3>
-          <p className='item-details1'>{item.details}</p>        
-          <button onClick={handleClick} className='item-button__seeMore' > see more </button> 
+          <h3>{item.title}</h3>
+          <p>{item.details}</p>        
+          <button onClick={handleClick}> see more </button> 
         </section> 
 
     </div>
