@@ -1,36 +1,108 @@
 .modal {
 	display: none;
 	position: fixed;
-	z-index: 1;
 	left: 0;
 	top: 0;
+	z-index: 100;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal.-show {
-	display: block;
-	/* filter: blur(2px); */
-}
-.modal-content {
-	position: relative;
-	background-color: #fefefe;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 80%;
-	z-index: 2;
-}
+	&.-show {
+		display: block;
+	}
 
-.modal-button__close {
-	position: absolute;
-	top: -4px;
-	right: 8px;
-	padding: 10px;
-	font-size: 2rem;
-	cursor: pointer;
-	color: #0008;
+	> .modal-content {
+		position: relative;
+		background-color: #7776769f;
+		margin: 15% auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 600px;
+		/* height: 300px; */
+		height: fit-content;
+		z-index: 2;
+
+		> .modal-button__close {
+			position: absolute;
+			top: -48px;
+			right: 0px;
+			padding: 10px;
+			font-size: 2rem;
+			cursor: pointer;
+			color: #fff8;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				color: #fff;
+			}
+		}
+
+		> header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 12px;
+
+			img {
+				width: 32px;
+				height: 32px;
+			}
+
+			.fulltime {
+				color: #000;
+				padding: 1px 8px;
+				font-size: 0.65rem;
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				background: #fff5;
+			}
+		}
+
+		> section {
+			margin-top: 12px;
+			padding: 12px;
+			background: #fff6;
+
+			label {
+				font-weight: 600;
+				color: #0006;
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+				margin-right: 12px;
+
+				+ span {
+					color: #0009;
+					font-weight: bold;
+				}
+			}
+
+			.description {
+				background: #fff7;
+				padding: 8px;
+				margin: 8px;
+
+				> small {
+					/* overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: wrap;
+					display: -webkit-box; */
+					line-height: 1.5;
+					color: #0009;
+				}
+			}
+		}
+
+		> footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 12px;
+			font-size: 0.85rem;
+			color: #fff6;
+		}
+	}
 }

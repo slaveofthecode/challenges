@@ -41,9 +41,9 @@ function App() {
 	}, [filter]);
 
 	return (
-		<div>
+		<>
+			<Filter setFilter={setFilter} />
 			<div className={dataSelected ? "-blur" : ""}>
-				<Filter setFilter={setFilter} />
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
 			<Footer />
@@ -51,7 +51,7 @@ function App() {
 				dataSelected={dataSelected}
 				setDataSelected={setDataSelected}
 			/>
-		</div>
+		</>
 	);
 }
 

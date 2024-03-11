@@ -4,3 +4,6 @@
 .-blur {
 	filter: blur(4px);
 }
+.-blur-grayscale {
+	filter: grayscale(1) blur(4px);
+}
