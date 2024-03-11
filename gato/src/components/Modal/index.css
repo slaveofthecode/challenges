@@ -106,3 +106,12 @@
 		}
 	}
 }
+
+@media (max-width: 650px) {
+	.modal {
+		> .modal-content {
+			width: 90%;
+			margin: calc(90% - 150px) auto;
+		}
+	}
+}
