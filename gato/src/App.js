@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Filter from "./components/Filter";
+import Footer from "./components/Footer";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
 import useFetch from "./hooks/useFetch";
@@ -45,6 +46,7 @@ function App() {
 				<Filter setFilter={setFilter} />
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
+			<Footer />
 			<Modal
 				dataSelected={dataSelected}
 				setDataSelected={setDataSelected}
