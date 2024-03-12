@@ -48,10 +48,25 @@ function App() {
 				style={{
 					transition: "all 0.3s ease",
 					height: "100%",
-					minHeight: "calc(100vh - 110px)",
+					minHeight: "calc(100vh - 50px)",
 				}}
 			>
-				<Grid data={data} setDataSelected={setDataSelected} />
+				{data?.length === 0 && (
+					<div
+						style={{
+							textAlign: "center",
+							padding: "20px",
+							color: "#fff",
+							margin: "15% auto",
+						}}
+					>
+						<h3>No data found</h3>
+					</div>
+				)}
+
+				{data?.length > 0 && (
+					<Grid data={data} setDataSelected={setDataSelected} />
+				)}
 			</div>
 			<Footer />
 

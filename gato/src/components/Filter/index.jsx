@@ -51,65 +51,36 @@ const Index = ({setFilter}) => {
             <div>
                 <input 
                     type='text' 
-                    placeholder='Search by title...' 
-                    className='filter-input'
+                    placeholder='Search by title...'                     
                     onChange={handlerOnChange}
                 />
 
-            <div className='radios'>
-                {/* <div>
-                    <label htmlFor='radio-all' >All</label>
-                    <input 
-                        id='radio-all'
-                        type='radio'
-                        name='fulltime'
-                        onChange={handlerOnChangeOption}
-                        defaultChecked
-                        />
-                        </div>    
-                        <div>
-                        <label htmlFor='radio-is-fulltime' >Fulltime</label>
-                        <input 
-                        id='radio-is-fulltime'
-                        type='radio'
-                        name='fulltime'
-                        onChange={handlerOnChangeOption}
-                        />
-                        </div>
-                        <div>
-                        <label htmlFor='radio-no-fulltime' >No fulltime</label>
-                        <input 
-                        id='radio-no-fulltime'
-                        type='radio'
-                        name='fulltime'
-                        onChange={handlerOnChangeOption}
-                        />
-                    </div> */}
+                <div className='radios'>
 
-                <input 
-                    id="all" 
-                    type="radio" 
-                    name="radios"  
-                    onChange={handlerOnChangeOption} 
-                    value={undefined}                
+                    <input 
+                        id="all" 
+                        type="radio" 
+                        name="radios"  
+                        onChange={handlerOnChangeOption} 
+                        value={undefined}                
+                        />
+                    <label htmlFor="all">All</label>
+                    <input 
+                        id="justFullTime" 
+                        type="radio" name="radios"  
+                        onChange={handlerOnChangeOption} 
+                        value={true}                
+                        />
+                    <label htmlFor="justFullTime">Just full-Time</label>
+                    <input 
+                        id="noFullTime" 
+                        type="radio" 
+                        name="radios"  
+                        onChange={handlerOnChangeOption} 
+                        value={false}                
                     />
-                <label htmlFor="all">All</label>
-                <input 
-                    id="justFullTime" 
-                    type="radio" name="radios"  
-                    onChange={handlerOnChangeOption} 
-                    value={true}                
-                    />
-                <label htmlFor="justFullTime">Just full-Time</label>
-                <input 
-                    id="noFullTime" 
-                    type="radio" 
-                    name="radios"  
-                    onChange={handlerOnChangeOption} 
-                    value={false}                
-                />
-                <label htmlFor="noFullTime">No full-time</label>                
-            </div> 
+                    <label htmlFor="noFullTime">No full-time</label>                
+                </div> 
 
             </div>
 
