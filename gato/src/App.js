@@ -18,9 +18,9 @@ function App() {
 
 	const { data: dataFetch } = useFetch(process.env.REACT_APP_API_URL, true);
 
-	useEffect(() => {
-		if (dataFetch) setData(dataFetch);
-	}, [dataFetch]);
+	// useEffect(() => {
+	// 	if (dataFetch) setData(dataFetch);
+	// }, [dataFetch]);
 
 	useEffect(() => {
 		let filterData = dataFetch;

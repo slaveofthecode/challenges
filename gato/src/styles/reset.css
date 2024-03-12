@@ -12,6 +12,8 @@ html {
 
 body {
 	font-family: "Verdana", sans-serif;
+	background: linear-gradient(to bottom, black, gray);
+	height: 100vh;
 }
 
 ul,

@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import './index.css';
 
 const Index = ({setFilter}) => {
 
+    const filterContainerRef = useRef(null);
     const { debounce } = useDebounce();
 
     const handlerOnChange = (evt) => {
         
         debounce( () => {
             const { value } = evt.target;
-            setFilter( f => {
-                
+            console.log('debounce', value);
+
+            filterContainerRef.current.classList.add('moveTop');
+
+            setFilter( f => {                
                 return {
                     ...f,
                     title: value
                 }
-
             });
+
         }, 500);
 
     }
@@ -25,6 +29,9 @@ const Index = ({setFilter}) => {
     const handlerOnChangeOption = (evt) => {
         const { value } = evt.target;
         const isFulltime = value === 'true';
+
+        console.log('handlerOnChangeOption', value);
+        filterContainerRef.current.classList.add('moveTop');
         
         setFilter( f => {
              
@@ -39,7 +46,7 @@ const Index = ({setFilter}) => {
     }
 
     return (
-        <div className='filter-container'>
+        <div className='filter-container' ref={filterContainerRef}>
 
             <div>
                 <input 
@@ -50,37 +57,58 @@ const Index = ({setFilter}) => {
                 />
 
             <div className='radios'>
-                <div>
+                {/* <div>
                     <label htmlFor='radio-all' >All</label>
                     <input 
                         id='radio-all'
                         type='radio'
                         name='fulltime'
                         onChange={handlerOnChangeOption}
-                        value={undefined}                
                         defaultChecked
-                    />
-                </div>    
-                <div>
-                    <label htmlFor='radio-is-fulltime' >Fulltime</label>
-                    <input 
+                        />
+                        </div>    
+                        <div>
+                        <label htmlFor='radio-is-fulltime' >Fulltime</label>
+                        <input 
                         id='radio-is-fulltime'
                         type='radio'
                         name='fulltime'
                         onChange={handlerOnChangeOption}
-                        value={true}                
-                    />
-                </div>
-                <div>
-                    <label htmlFor='radio-no-fulltime' >No fulltime</label>
-                    <input 
+                        />
+                        </div>
+                        <div>
+                        <label htmlFor='radio-no-fulltime' >No fulltime</label>
+                        <input 
                         id='radio-no-fulltime'
                         type='radio'
                         name='fulltime'
                         onChange={handlerOnChangeOption}
-                        value={false}                
+                        />
+                    </div> */}
+
+                <input 
+                    id="all" 
+                    type="radio" 
+                    name="radios"  
+                    onChange={handlerOnChangeOption} 
+                    value={undefined}                
                     />
-                </div>
+                <label htmlFor="all">All</label>
+                <input 
+                    id="justFullTime" 
+                    type="radio" name="radios"  
+                    onChange={handlerOnChangeOption} 
+                    value={true}                
+                    />
+                <label htmlFor="justFullTime">Just full-Time</label>
+                <input 
+                    id="noFullTime" 
+                    type="radio" 
+                    name="radios"  
+                    onChange={handlerOnChangeOption} 
+                    value={false}                
+                />
+                <label htmlFor="noFullTime">No full-time</label>                
             </div> 
 
             </div>
