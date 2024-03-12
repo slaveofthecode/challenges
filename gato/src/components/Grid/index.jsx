@@ -11,7 +11,7 @@ const Grid = ({ data, setDataSelected }) => {
         data?.length > 0 && (
           <div  className='grid-totalrows'>
             <small >             
-              Total rows 
+              <span/>
               ( 
                 <strong>
                     { data?.length }

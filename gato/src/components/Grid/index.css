@@ -16,6 +16,10 @@
 	margin-bottom: 6px;
 
 	> small {
+		&::before {
+			content: " Total rows";
+		}
+
 		padding: 6px;
 		background: #0009;
 		color: #fff7;
@@ -23,6 +27,15 @@
 		> strong {
 			margin-inline: 3px;
 			color: #fff;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.grid-totalrows {
+		margin-block: 6px;
+		> small::before {
+			content: " Rows ";
 		}
 	}
 }

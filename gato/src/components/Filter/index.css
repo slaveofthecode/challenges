@@ -103,6 +103,7 @@
 @media (max-width: 890px) {
 	.filter-container {
 		left: calc(50% - (70vw / 2));
+
 		> div {
 			gap: 0;
 			width: 70vw;

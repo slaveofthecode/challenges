@@ -46,3 +46,10 @@
 		}
 	}
 }
+
+@media (max-width: 768px) {
+	.item {
+		width: calc(100vw - 20px);
+		padding: 12px;
+	}
+}
