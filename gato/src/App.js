@@ -48,7 +48,7 @@ function App() {
 				style={{
 					transition: "all 0.3s ease",
 					height: "100%",
-					minHeight: "calc(100vh - 50px)",
+					minHeight: "calc(100vh - 110px)",
 				}}
 			>
 				{data?.length === 0 && (

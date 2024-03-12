@@ -53,3 +53,25 @@
 		padding: 12px;
 	}
 }
+
+@media (max-width: 420px) {
+	.item {
+		> div {
+			> figure {
+				> h3 {
+					font-size: 1rem;
+				}
+				> button {
+					font-size: 1.2rem;
+					width: fit-content;
+				}
+				> figcaption {
+					display: none;
+					/* padding: 3px 6px;
+					margin: 0;
+					font-size: 0.85rem; */
+				}
+			}
+		}
+	}
+}

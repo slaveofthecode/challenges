@@ -34,8 +34,17 @@
 @media (max-width: 768px) {
 	.grid-totalrows {
 		margin-block: 6px;
+		padding-right: 12px;
 		> small::before {
-			content: " Rows ";
+			content: "Rows ";
+		}
+	}
+}
+
+@media (max-width: 460px) {
+	.grid-totalrows {
+		> small::before {
+			content: "";
 		}
 	}
 }

@@ -7,3 +7,7 @@
 .-blur-grayscale {
 	filter: grayscale(1) blur(4px);
 }
+
+#root {
+	min-height: 100vh;
+}
