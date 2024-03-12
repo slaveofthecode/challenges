@@ -104,7 +104,7 @@
 	.filter-container {
 		left: calc(50% - (70vw / 2));
 		> div {
-			gap: 16px;
+			gap: 0;
 			width: 70vw;
 			display: flex;
 			flex-direction: column;
@@ -114,48 +114,22 @@
 			> input {
 				width: 100%;
 				font-size: 1rem !important;
+				margin-top: 6px;
+				margin-inline: 0px !important;
 			}
 
 			> div.radios {
 				z-index: 1000;
+				height: fit-content;
+				margin-block: 12px;
 				label {
 					font-size: 0.85rem !important;
-					height: fit-content !important;
-					margin-block: 4px;
+					height: 100% !important;
 				}
 			}
 		}
 	}
 }
-
-/* @media (max-width: 1420px) {
-	.filter-container > div {
-		width: 1000px;
-	}
-}
-
-@media (max-width: 1200px) {
-	.filter-container > div {
-		display: flex;
-		flex-direction: column;
-		height: fit-content;
-		padding-right: 0;
-		align-items: start;
-
-		> input {
-			width: 100%;
-			font-size: 1rem !important;
-		}
-
-		> div.radios {
-			padding: 6px 12px;
-
-			label {
-				font-size: 0.85rem !important;
-			}
-		}
-	}
-} */
 
 @keyframes moveTop {
 	0% {
