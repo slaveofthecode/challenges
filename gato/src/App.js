@@ -43,7 +43,14 @@ function App() {
 	return (
 		<>
 			<Filter setFilter={setFilter} />
-			<div className={dataSelected ? "-blur" : ""}>
+			<div
+				className={dataSelected ? "-blur" : ""}
+				style={{
+					transition: "all 0.3s ease",
+					height: "100%",
+					minHeight: "calc(100vh - 110px)",
+				}}
+			>
 				<Grid data={data} setDataSelected={setDataSelected} />
 			</div>
 			<Footer />
