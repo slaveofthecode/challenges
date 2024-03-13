@@ -4,6 +4,7 @@ import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
+import NotFoundData from "./components/NotFoundData";
 import useFetch from "./hooks/useFetch";
 
 import "./styles/index.css";
@@ -36,7 +37,7 @@ function App() {
 			filterData = filterData.filter((item) =>
 				item.title.toLowerCase().includes(title.toLowerCase())
 			);
-
+		console.log("Filter data", filterData);
 		setData(filterData);
 	}, [filter]);
 
@@ -51,19 +52,7 @@ function App() {
 					minHeight: "calc(100vh - 110px)",
 				}}
 			>
-				{data?.length === 0 && (
-					<div
-						style={{
-							textAlign: "center",
-							padding: "20px",
-							color: "#fff",
-							margin: "15% auto",
-						}}
-					>
-						<h3>No data found</h3>
-					</div>
-				)}
-
+				{data?.length === 0 && <NotFoundData />}
 				{data?.length > 0 && (
 					<Grid data={data} setDataSelected={setDataSelected} />
 				)}

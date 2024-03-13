@@ -6,13 +6,11 @@
 	box-sizing: border-box;
 }
 
-html {
-	background: #454343;
-}
-
+html,
 body {
 	font-family: "Verdana", sans-serif;
 	background: linear-gradient(to bottom, black, gray);
+	position: relative;
 }
 
 ul,
