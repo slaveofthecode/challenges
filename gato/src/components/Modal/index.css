@@ -44,21 +44,15 @@
 			align-items: center;
 			margin-bottom: 12px;
 
-			img {
-				/* width: 48px;
-				height: auto;
-				object-fit: cover; */
-
-				/* width: 65%;
-				object-fit: contain;
-				float: right; */
-
+			.img-container {
 				width: fit-content;
-				/* height: 100%; */
-				object-fit: cover;
-				float: right;
-				max-width: 48px;
-				max-height: 75px;
+				img {
+					width: 80%;
+					height: fit-content;
+					max-height: 150px;
+					object-fit: cover;
+					float: right;
+				}
 			}
 
 			.fulltime {

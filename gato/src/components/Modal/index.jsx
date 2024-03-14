@@ -24,7 +24,7 @@ const Modal = ({dataSelected, setDataSelected}) => {
                 { `${dataSelected.fulltime ? 'full-time' : 'no full-time'} `}
               </small>
             </div>
-            <div>
+            <div className='img-container'>
               <img src={dataSelected.logo} alt={dataSelected.company} />
             </div>
           </header>
