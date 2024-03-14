@@ -50,7 +50,7 @@
 					width: 80%;
 					height: fit-content;
 					max-height: 150px;
-					object-fit: cover;
+					object-fit: contain;
 					float: right;
 				}
 			}
