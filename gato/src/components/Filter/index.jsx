@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import './index.css';
 
-const Index = ({setFilter}) => {
+const Filter = ({setFilter}) => {
 
     const filterContainerRef = useRef(null);
     const { debounce } = useDebounce();
@@ -11,9 +11,10 @@ const Index = ({setFilter}) => {
         
         debounce( () => {
             const { value } = evt.target;
-            console.log('debounce', value);
+
 
             filterContainerRef.current.classList.add('moveTop');
+                        
 
             setFilter( f => {                
                 return {
@@ -30,7 +31,6 @@ const Index = ({setFilter}) => {
         const { value } = evt.target;
         const isFulltime = value === 'true';
 
-        console.log('handlerOnChangeOption', value);
         filterContainerRef.current.classList.add('moveTop');
         
         setFilter( f => {
@@ -88,4 +88,4 @@ const Index = ({setFilter}) => {
     )
 }
 
-export default Index
+export default Filter

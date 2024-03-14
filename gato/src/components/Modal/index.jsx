@@ -1,8 +1,8 @@
 import React from 'react';
+
 import './index.css';
 
 const Modal = ({dataSelected, setDataSelected}) => {
-    console.log('MODAL', dataSelected);
     if (!dataSelected) return null;
 
     const formatDate = (date) => {
@@ -59,4 +59,4 @@ const Modal = ({dataSelected, setDataSelected}) => {
   )
 }
 
-export default Modal
+export default Modal;

@@ -4,6 +4,7 @@ import Item from '../Item';
 import './index.css';
 
 const Grid = ({ data, setDataSelected }) => {
+
   return (
     <div style={{ padding: '5px 10px', position: 'relative' }} >
 

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import Grid from "./components/Grid";
@@ -19,10 +19,6 @@ function App() {
 
 	const { data: dataFetch } = useFetch(process.env.REACT_APP_API_URL, true);
 
-	// useEffect(() => {
-	// 	if (dataFetch) setData(dataFetch);
-	// }, [dataFetch]);
-
 	useEffect(() => {
 		let filterData = dataFetch;
 
@@ -37,33 +33,34 @@ function App() {
 			filterData = filterData.filter((item) =>
 				item.title.toLowerCase().includes(title.toLowerCase())
 			);
+
 		console.log("Filter data", filterData);
 		setData(filterData);
 	}, [filter]);
 
-	return (
-		<>
-			<Filter setFilter={setFilter} />
-			<div
-				className={dataSelected ? "-blur" : ""}
-				style={{
-					paddingBottom: "50px",
-					// 	transition: "all 0.3s ease",
-					// 	height: "calc(100% - 50px)",
-					// 	minHeight: "calc(100vh - 110px)",
-				}}
-			>
-				{data?.length === 0 && <NotFoundData />}
-				{data?.length > 0 && (
-					<Grid data={data} setDataSelected={setDataSelected} />
-				)}
-			</div>
-			<Footer />
-
+	const modalMemo = useMemo(() => {
+		return (
 			<Modal
 				dataSelected={dataSelected}
 				setDataSelected={setDataSelected}
 			/>
+		);
+	}, [dataSelected]);
+
+	return (
+		<>
+			<Filter setFilter={setFilter} />
+
+			<main className={` main ${dataSelected ? "-blur" : ""}`}>
+				{data?.length === 0 && <NotFoundData />}
+				{data?.length > 0 && (
+					<Grid data={data} setDataSelected={setDataSelected} />
+				)}
+			</main>
+
+			<Footer />
+
+			{modalMemo}
 		</>
 	);
 }
