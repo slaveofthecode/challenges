@@ -57,6 +57,7 @@
 				/* height: 100%; */
 				object-fit: cover;
 				float: right;
+				max-width: 48px;
 				max-height: 75px;
 			}
 
