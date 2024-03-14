@@ -1,0 +1,28 @@
+.inputRadio {
+	[type="radio"] {
+		display: none;
+	}
+
+	label[for] {
+		padding: 4px 12px;
+		background: rgba(25, 25, 25, 0.25);
+		cursor: pointer;
+		transition: all 0.25s 0s;
+		border-radius: 5px;
+		font-size: 0.9rem;
+		height: 45px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	label[for]:hover {
+		background: rgba(25, 25, 25, 0.75);
+		color: #fff9;
+	}
+
+	[type="radio"]:checked + label[for] {
+		background: rgba(25, 25, 25, 1);
+		color: #fff;
+	}
+}

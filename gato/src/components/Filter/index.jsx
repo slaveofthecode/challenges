@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import useDebounce from '../../hooks/useDebounce';
+import InputRadio from '../common/InputRadio';
 import './index.css';
 
 const Filter = ({setFilter}) => {
@@ -12,10 +13,8 @@ const Filter = ({setFilter}) => {
         debounce( () => {
             const { value } = evt.target;
 
-
             filterContainerRef.current.classList.add('moveTop');
                         
-
             setFilter( f => {                
                 return {
                     ...f,
@@ -56,30 +55,27 @@ const Filter = ({setFilter}) => {
                 />
 
                 <div className='radios'>
-
-                    <input 
-                        id="all" 
-                        type="radio" 
-                        name="radios"  
-                        onChange={handlerOnChangeOption} 
-                        value={undefined}                
-                        />
-                    <label htmlFor="all">All</label>
-                    <input 
-                        id="justFullTime" 
-                        type="radio" name="radios"  
-                        onChange={handlerOnChangeOption} 
-                        value={true}                
-                        />
-                    <label htmlFor="justFullTime">Just full-Time</label>
-                    <input 
-                        id="noFullTime" 
-                        type="radio" 
-                        name="radios"  
-                        onChange={handlerOnChangeOption} 
-                        value={false}                
+                    <InputRadio 
+                        id='all'
+                        name='radios'
+                        value={undefined}
+                        text='All'
+                        handlerOnChangeOption={handlerOnChangeOption}
                     />
-                    <label htmlFor="noFullTime">No full-time</label>                
+                    <InputRadio
+                        id='justFullTime'
+                        name='radios'
+                        value={true}
+                        text='Just full-Time'
+                        handlerOnChangeOption={handlerOnChangeOption}
+                    />
+                    <InputRadio
+                        id='noFullTime'
+                        name='radios'
+                        value={false}
+                        text='No full-time'
+                        handlerOnChangeOption={handlerOnChangeOption}
+                    />
                 </div> 
 
             </div>

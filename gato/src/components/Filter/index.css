@@ -7,7 +7,7 @@
 	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.5);
 	position: absolute;
-	top: calc(50% - 25px);
+	top: calc(50% - 60px);
 	left: calc(50% - 600px);
 	z-index: 10;
 
@@ -60,7 +60,7 @@
 				}
 			}
 
-			[type="radio"] {
+			/* [type="radio"] {
 				display: none;
 			}
 
@@ -85,7 +85,7 @@
 			[type="radio"]:checked + label[for] {
 				background: rgba(25, 25, 25, 1);
 				color: #fff;
-			}
+			} */
 		}
 	}
 }

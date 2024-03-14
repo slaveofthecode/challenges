@@ -1,10 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useState } from "react";
-import Filter from "./components/Filter";
-import Footer from "./components/Footer";
-import Grid from "./components/Grid";
-import Modal from "./components/Modal";
-import NotFoundData from "./components/NotFoundData";
+import { Filter, Footer, Grid, Modal, NotFoundData } from "./components";
 import useFetch from "./hooks/useFetch";
 
 import "./styles/index.css";
@@ -34,7 +30,6 @@ function App() {
 				item.title.toLowerCase().includes(title.toLowerCase())
 			);
 
-		console.log("Filter data", filterData);
 		setData(filterData);
 	}, [filter]);
 
