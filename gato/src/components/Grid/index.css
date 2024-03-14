@@ -12,8 +12,8 @@
 	width: 100%;
 	text-align: right;
 	display: block;
-	z-index: 100;
 	margin-bottom: 6px;
+	z-index: 9;
 
 	> small {
 		&::before {

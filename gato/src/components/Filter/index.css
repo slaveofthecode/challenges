@@ -18,7 +18,6 @@
 	> div {
 		height: 50px;
 		width: 1200px;
-		/* border-radius: 5px; */
 		border-radius: 10px;
 		background: #3d3d3d;
 		display: flex;
@@ -120,7 +119,7 @@
 			}
 
 			> div.radios {
-				z-index: 1000;
+				z-index: 10;
 				height: fit-content;
 				margin-block: 12px;
 				label {

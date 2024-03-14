@@ -59,7 +59,20 @@
 		> div {
 			> figure {
 				> h3 {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					padding-block: 8px;
 					font-size: 1rem;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+				> img {
+					width: 75%;
+					height: 75%;
+					object-fit: cover;
 				}
 				> button {
 					font-size: 1.2rem;

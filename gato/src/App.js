@@ -47,9 +47,10 @@ function App() {
 			<div
 				className={dataSelected ? "-blur" : ""}
 				style={{
-					transition: "all 0.3s ease",
-					height: "100%",
-					minHeight: "calc(100vh - 110px)",
+					paddingBottom: "50px",
+					// 	transition: "all 0.3s ease",
+					// 	height: "calc(100% - 50px)",
+					// 	minHeight: "calc(100vh - 110px)",
 				}}
 			>
 				{data?.length === 0 && <NotFoundData />}
