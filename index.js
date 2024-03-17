@@ -6,7 +6,7 @@ const express = require("express");
 const mustacheExpress = require("mustache-express");
 const data = require("./data.json");
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
