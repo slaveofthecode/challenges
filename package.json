@@ -12,10 +12,10 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.18.3"
+		"express": "^4.18.3",
+		"mustache-express": "^1.3.2"
 	},
 	"devDependencies": {
-		"mustache-express": "^1.3.2",
 		"nodemon": "^3.1.0"
 	}
 }
