@@ -1,6 +1,10 @@
-import express from "express";
-import mustacheExpress from "mustache-express";
-import data from "./data.json" assert { type: "json" };
+// import express from "express";
+// import mustacheExpress from "mustache-express";
+// import data from "./data.json" assert { type: "json" };
+
+const express = require("express");
+const mustacheExpress = require("mustache-express");
+const data = require("./data.json");
 
 const port = process.env.PORT || 3001;
 
