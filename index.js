@@ -1,10 +1,11 @@
-// import express from "express";
-// import mustacheExpress from "mustache-express";
-// import data from "./data.json" assert { type: "json" };
+import express from "express";
+import mustacheExpress from "mustache-express";
+import path from "path";
+import data from "./data.json" assert { type: "json" };
 
-const express = require("express");
-const mustacheExpress = require("mustache-express");
-const data = require("./data.json");
+// const express = require("express");
+// const mustacheExpress = require("mustache-express");
+// const data = require("./data.json");
 
 const port = process.env.PORT || 3000;
 
@@ -14,26 +15,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static("public"));
 
-// __dirname
-
 // Set up the public directory
-app.use("/public", express.static("public"));
-app.use(express.static(__dirname + "/public"));
+// app.use("/public", express.static("public"));
+// app.use(express.static(__dirname + "/public"));
+
+// Serve static files from the "public" directory
+const publicDirectoryPath = path.join(
+	path.dirname(new URL(import.meta.url).pathname),
+	"public"
+);
+app.use(express.static(publicDirectoryPath));
 // ---
 
 // Set up mustache as the view engine
-// app.set("view engine", "mustache");
-// app.engine(".mustache", mustacheExpress());
-// app.set("views", "./views");
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
-app.set("views", __dirname + "/views");
-
-// app.set("layout", "layout");
-// app.set("layout ext", ".mustache");
-// app.set("partials", "./views/partials");
-// app.set("data", data);
-
+// app.set("views", __dirname + "/views");
+app.set(
+	"views",
+	path.join(path.dirname(new URL(import.meta.url).pathname), "views")
+);
 // ---
 
 app.get("/", (req, res) => {
@@ -45,4 +46,4 @@ app.listen(port, () => {
 });
 
 // export default app;
-module.exports = app;
+// module.exports = app;

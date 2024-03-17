@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "This repository contains some challenges that I have solved. The challenges are written in different programming languages. They have been applications for different offers of work.",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"dev": "nodemon index.js",
 		"start": "node index.js"
