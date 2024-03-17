@@ -1,11 +1,11 @@
-import express from "express";
-import mustacheExpress from "mustache-express";
-import path from "path";
-import data from "./data.json" assert { type: "json" };
+// import express from "express";
+// import mustacheExpress from "mustache-express";
+// import path from "path";
+// import data from "./data.json" assert { type: "json" };
 
-// const express = require("express");
-// const mustacheExpress = require("mustache-express");
-// const data = require("./data.json");
+const express = require("express");
+const mustacheExpress = require("mustache-express");
+const data = require("./data.json");
 
 const port = process.env.PORT || 3000;
 
@@ -16,25 +16,14 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static("public"));
 
 // Set up the public directory
-// app.use("/public", express.static("public"));
-// app.use(express.static(__dirname + "/public"));
-
-// Serve static files from the "public" directory
-const publicDirectoryPath = path.join(
-	path.dirname(new URL(import.meta.url).pathname),
-	"public"
-);
-app.use(express.static(publicDirectoryPath));
+app.use("/public", express.static("public"));
+app.use(express.static(__dirname + "/public"));
 // ---
 
 // Set up mustache as the view engine
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
-// app.set("views", __dirname + "/views");
-app.set(
-	"views",
-	path.join(path.dirname(new URL(import.meta.url).pathname), "views")
-);
+app.set("views", __dirname + "/views");
 // ---
 
 app.get("/", (req, res) => {
@@ -45,5 +34,5 @@ app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });
 
-export default app;
-// module.exports = app;
+// export default app;
+module.exports = app;
