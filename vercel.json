@@ -2,7 +2,8 @@
 	"builds": [
 		{
 			"src": "./index.js",
-			"use": ["@express", "@vercel/node", "@vercel/static"]
+			"use": "@vercel/node",
+			"config": { "zeroConfig": true }
 		}
 	],
 	"routes": [
