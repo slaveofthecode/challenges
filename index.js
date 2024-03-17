@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // Set up mustache as the view engine
 app.engine(".mustache", mustacheExpress());
