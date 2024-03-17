@@ -1,0 +1,167 @@
+.filter-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff8;
+	padding: 5px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: calc(50% - 60px);
+	left: calc(50% - 600px);
+	z-index: 10;
+
+	&.moveTop {
+		animation: moveTop 1.25s ease-in forwards;
+	}
+
+	> div {
+		height: 50px;
+		width: 1200px;
+		border-radius: 10px;
+		background: #3d3d3d;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-right: 10px;
+		gap: 5px;
+
+		> input[type="text"] {
+			padding: 10px;
+			border-radius: 5px;
+			flex: 1;
+			margin-inline: 5px;
+			background: transparent;
+			border: none;
+			outline: none;
+			color: #fff;
+			font-size: 1.25rem;
+		}
+
+		> div.radios {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 5px;
+
+			> div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
+
+				> label {
+					font-size: 1rem;
+					text-transform: lowercase;
+				}
+
+				> input[type="checkbox"] {
+					margin-left: 20px;
+				}
+			}
+
+			/* [type="radio"] {
+				display: none;
+			}
+
+			label[for] {
+				padding: 4px 12px;
+				background: rgba(25, 25, 25, 0.25);
+				cursor: pointer;
+				transition: all 0.25s 0s;
+				border-radius: 5px;
+				font-size: 0.9rem;
+				height: 45px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			label[for]:hover {
+				background: rgba(25, 25, 25, 0.75);
+				color: #fff9;
+			}
+
+			[type="radio"]:checked + label[for] {
+				background: rgba(25, 25, 25, 1);
+				color: #fff;
+			} */
+		}
+	}
+}
+
+@media (max-width: 1420px) {
+	.filter-container {
+		left: calc(50% - (80vw / 2));
+		> div {
+			width: 80vw;
+		}
+	}
+}
+
+@media (max-width: 890px) {
+	.filter-container {
+		left: calc(50% - (70vw / 2));
+
+		> div {
+			gap: 0;
+			width: 70vw;
+			display: flex;
+			flex-direction: column;
+			padding-right: 0;
+			align-items: start;
+
+			> input {
+				width: 100%;
+				font-size: 1rem !important;
+				margin-top: 6px;
+				margin-inline: 0px !important;
+			}
+
+			> div.radios {
+				z-index: 10;
+				height: fit-content;
+				margin-block: 12px;
+				label {
+					font-size: 0.85rem !important;
+					height: 100% !important;
+				}
+			}
+		}
+	}
+}
+
+@keyframes moveTop {
+	0% {
+		position: fixed;
+		top: calc(50% - (3em / 2));
+		/* left: calc(50% - (50% / 2)); */
+	}
+
+	25% {
+		top: -10%;
+	}
+
+	30% {
+		top: 3em;
+	}
+
+	40% {
+		top: 2em;
+	}
+
+	60% {
+		top: 1em;
+	}
+
+	80% {
+		top: 0.5em;
+	}
+
+	100% {
+		position: sticky;
+		width: fit-content;
+		top: 0.5em;
+		left: 0.5em;
+	}
+}

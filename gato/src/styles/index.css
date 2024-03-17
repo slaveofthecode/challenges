@@ -1,0 +1,17 @@
+@import "./reset.css";
+@import "./scrollbar.css";
+
+.-blur {
+	filter: blur(4px);
+}
+.-blur-grayscale {
+	filter: grayscale(1) blur(4px);
+}
+
+#root {
+	min-height: 100vh;
+
+	.main {
+		padding-bottom: 50px;
+	}
+}
