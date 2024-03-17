@@ -12,12 +12,17 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 // Set up mustache as the view engine
+app.set("view engine", "mustache");
 app.engine(".mustache", mustacheExpress());
 app.set("views", "./views");
-app.set("view engine", "mustache");
+// app.set("layout", "layout");
+// app.set("layout ext", ".mustache");
+// app.set("partials", "./views/partials");
+// app.set("data", data);
+
 // ---
 
 app.get("/", (req, res) => {
