@@ -2,7 +2,7 @@ import express from "express";
 import mustacheExpress from "mustache-express";
 import data from "./data.json" assert { type: "json" };
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -23,3 +23,6 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
 	console.log("Server is running on port 3000");
 });
+
+// export default app;
+module.exports = app;
