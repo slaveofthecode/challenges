@@ -1,0 +1,22 @@
+{
+	"name": "challenges",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "This repository contains some challenges that I have solved. The challenges are written in different programming languages. They have been applications for different offers of work.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon -e js,mustache ./index.js ./views/*.mustache",
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.3"
+	},
+	"devDependencies": {
+		"mustache-express": "^1.3.2",
+		"nodemon": "^3.1.0"
+	}
+}

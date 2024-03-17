@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{ page.title }}</title>
+		<style>
+			*, *::before, *::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;				
+			}
+
+			a[href] {
+				text-decoration: none;
+				color: gray;
+			}
+
+			body {
+				font-family: Verdana, Arial, sans-serif;
+				padding: 1rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				max-width: 1240px;
+				justify-content: center;
+				margin: auto;
+				margin-top: 2rem;
+			}
+
+			body > header {
+				background: #9e9e9e14;
+				width: 100%;
+				height: 70px;
+				display: flex;
+    			justify-content: center;
+			}
+
+			body > header > a {
+				text-decoration: none;
+				color: black;
+				display: inline-block;
+				height: 100%;
+				padding-inline: 1rem;
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				width: fit-content;
+				letter-spacing: .5rem;
+			}
+
+			body > main > section {
+				position: relative;
+				height: fit-content;
+				border-bottom: 1px solid lightgray;
+				margin: 25px auto;
+				background: whitesmoke;
+				border-radius: 5px;
+				padding: 1rem;
+			}
+
+			body > main > section:before {
+				/* effect shadow */
+				position: absolute;
+				bottom: 8px;
+				left: 5px;
+				content:"";
+				width: 300px;
+				box-shadow: 0px 8px 5px 5px lightgray;            
+				transform: rotate(-2deg);    
+				z-index: -1;
+			}
+			body > main > section:after {
+				/* effect shadow */
+				position: absolute;
+				bottom: 8px;
+				right: 5px;
+				content:"";
+				width: 300px;
+				box-shadow: 0px 8px 5px 5px lightgray;            
+				transform: rotate(2deg);    
+				z-index: -1;
+			}
+
+			body > main > section > header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 3rem;
+				padding-inline: 1rem;				
+			}
+
+			body > main > section > header > div {
+				display: flex;
+				gap: 8px;
+				align-items: center;
+			}
+			
+			body > main > section > header > div > a {
+				transition: all 0.3s ease-in-out;
+			}
+
+			body > main > section > header > div > a:hover {
+				color: black;
+			}
+
+
+			body > main > section > header > h2 {
+				opacity: .65;
+			}
+
+			body > main > section > p {
+				padding: 0.75rem;
+				color: gray;
+			}
+		
+			body > main > section > .stacks {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 0.5rem 1rem;
+
+			}
+
+			body > main > section > .stacks > span {
+				background: #9e9e9e40;
+				padding: 0.5rem 1rem;
+				border-radius: 5px;
+				margin: 0.5rem;
+				font-size: 0.8rem;
+			}
+
+			body > footer {
+				margin-top: 2rem;
+				text-align: center;
+				opacity: .65;				
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="{{ page.url }}" target="_blank" >
+				<h1 class='headerH1' >{{ page.title }}</h1>
+			</a>
+		</header>
+		<main>
+			{{#projects}}
+			<section>
+				<header>
+					<h2>{{ name }}</h2>
+					<div>
+						 {{#demo}}
+							<a href="{{ demo }}" target="_blank" >demo</a>
+						{{/demo}}						
+						<a href="{{ url }}" target="_blank" >
+							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+						</a>
+					</div>
+				</header>
+				<p>{{ description }}</p>
+				<div class='stacks'>
+					{{#stack}}
+						<span>{{.}}</span>
+					{{/stack}}
+				</div>
+			</section>
+			{{/projects}}
+		</main>
+		<footer>
+			<p>
+				© {{ Date().getFullYear() }} 
+				{{ author.name }}
+			</p>			
+		</footer>
+	</body>
+</html>
