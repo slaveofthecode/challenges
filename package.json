@@ -5,7 +5,7 @@
 	"description": "This repository contains some challenges that I have solved. The challenges are written in different programming languages. They have been applications for different offers of work.",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon -e js,mustache ./index.js ./views/*.mustache",
+		"dev": "nodemon index.js",
 		"start": "node index.js"
 	},
 	"keywords": [],
