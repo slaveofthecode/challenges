@@ -14,10 +14,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static("public"));
 
+// __dirname
+
+// Set up the public directory
+app.use("/public", express.static("public"));
+app.use(express.static(__dirname + "/public"));
+// ---
+
 // Set up mustache as the view engine
+// app.set("view engine", "mustache");
+// app.engine(".mustache", mustacheExpress());
+// app.set("views", "./views");
+app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
-app.engine(".mustache", mustacheExpress());
-app.set("views", "./views");
+app.set("views", __dirname + "/views");
+
 // app.set("layout", "layout");
 // app.set("layout ext", ".mustache");
 // app.set("partials", "./views/partials");
