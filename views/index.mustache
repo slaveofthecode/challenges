@@ -49,11 +49,18 @@
 				letter-spacing: .5rem;
 			}
 
+			body > main {
+				display: grid;
+				width: 100%;
+				grid-template-columns: repeat(auto-fill, 500px);
+				grid-gap: 24px;
+				margin-block: 12px;
+			}
+
 			body > main > section {
 				position: relative;
 				height: fit-content;
 				border-bottom: 1px solid lightgray;
-				margin: 25px auto;
 				background: whitesmoke;
 				border-radius: 5px;
 				padding: 1rem;
@@ -157,6 +164,10 @@
 					</div>
 				</header>
 				<p>{{ description }}</p>
+				<figure>
+					<img src="{{ image }}" alt="{{ name }}" />
+					<figcaption>{{ name }}</figcaption>
+				</figure>
 				<div class='stacks'>
 					{{#stack}}
 						<span>{{.}}</span>
