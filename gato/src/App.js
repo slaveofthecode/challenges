@@ -13,7 +13,10 @@ function App() {
 		fulltime: null,
 	});
 
-	const { data: dataFetch } = useFetch(process.env.REACT_APP_API_URL, true);
+	const { data: dataFetch } = useFetch(
+		process.env.REACT_APP_VERCEL_API_URL,
+		true
+	);
 
 	useEffect(() => {
 		let filterData = dataFetch;
