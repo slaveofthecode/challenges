@@ -68,6 +68,7 @@
 				height: fit-content;
 				border-bottom: 1px solid lightgray;
 				background: whitesmoke;
+				{{! background: linear-gradient(to bottom, transparent, whitesmoke, white, white); }}
 				border-radius: 5px;
 				padding: 1rem;
 			}
@@ -151,8 +152,8 @@
 				background: #9e9e9e40;
 				padding: 0.5rem 1rem;
 				border-radius: 5px;
-				margin: 0.5rem;
-				font-size: 0.8rem;
+				margin: 0.25rem;
+				font-size: 0.75rem;
 			}
 
 			body > footer {
@@ -193,12 +194,16 @@
 				{{#image}}
 					<figure>
 						<img src="{{ image }}" alt="{{ name }}" />
-						<figcaption>{{ name }}</figcaption>
+						<figcaption>
+							<small>{{ name }}</small>
+						</figcaption>
 					</figure>
 				{{/image}}
 				<div class='stacks'>
 					{{#stack}}
-						<span>{{.}}</span>
+						<span>
+							{{.}}
+						</span>
 					{{/stack}}
 				</div>
 			</section>
@@ -207,7 +212,7 @@
 		<footer>
 			<p>
 				© 				
-				{{ author.name }}
+				<a href={{ author.portfolio }} target="_blank" >{{ author.name }}</a>
 			</p>			
 		</footer>
 	</body>

@@ -14,6 +14,11 @@ app.use("/public", express.static("public"));
 app.use(express.static(__dirname + "/public"));
 // ---
 
+// Set images folder as static
+app.use("/images", express.static("images"));
+app.use(express.static(__dirname + "/images"));
+// ---
+
 // Set up mustache as the view engine
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
